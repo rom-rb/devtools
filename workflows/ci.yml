@@ -1,4 +1,4 @@
-# this file is managed by dry-rb/devtools project
+# this file is managed by rom-rb/devtools project
 
 name: ci
 
@@ -58,7 +58,7 @@ jobs:
     if: contains(github.ref, 'tags') && github.event_name == 'create'
     needs: tests
     env:
-      GITHUB_LOGIN: dry-bot
+      GITHUB_LOGIN: rom-bot
       GITHUB_TOKEN: ${{secrets.GH_PAT}}
     steps:
       - uses: actions/checkout@v1
@@ -73,4 +73,4 @@ jobs:
       - name: Trigger release workflow
         run: |
           tag=$(echo $GITHUB_REF | cut -d / -f 3)
-          ossy gh w dry-rb/devtools release --payload "{\"tag\":\"$tag\",\"tag_creator\":\"$GITHUB_ACTOR\",\"repo\":\"$GITHUB_REPOSITORY\"}"
+          ossy gh w rom-rb/devtools release --payload "{\"tag\":\"$tag\",\"tag_creator\":\"$GITHUB_ACTOR\",\"repo\":\"$GITHUB_REPOSITORY\"}"

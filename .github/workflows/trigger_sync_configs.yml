@@ -23,13 +23,13 @@ jobs:
           ruby-version: "2.6.x"
       - name: Install dependencies
         run: gem install ossy --no-document
-      - name: Trigger config synchronization in dry-rb repositories
+      - name: Trigger config synchronization in rom-rb repositories
         env:
-          GITHUB_LOGIN: dry-bot
+          GITHUB_LOGIN: rom-bot
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           for name in `cat projects`
           do
             echo "Syncing $name"
-            ossy gh w dry-rb/$name sync_configs
+            ossy gh w rom-rb/$name sync_configs
           done

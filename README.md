@@ -1,10 +1,10 @@
 # devtools
 
-Common tools and configs used in dry-rb projects
+Common tools and configs used in rom-rb projects
 
 ## Keeping CHANGELOG.md up to date
 
-Use the following syntax in your **commit messages** to have `CHANGELOG.md` automatically updated in dry-rb repos:
+Use the following syntax in your **commit messages** to have `CHANGELOG.md` automatically updated in rom-rb repos:
 
 #### Updating latest version that already exists in the CHANGELOG.md
 
