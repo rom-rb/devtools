@@ -20,6 +20,4 @@ if [ -f $config ]; then
       ossy t c "$templates/$template_name" $(basename $template_name .erb) $config
     fi
   done
-
-  mv -v gemspec "${project_name}.gemspec"
 fi
