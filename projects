@@ -1,4 +1,5 @@
 rom
-rom-sql
+rom-elasticsearch
 rom-factory
+rom-sql
 rom-yesql
