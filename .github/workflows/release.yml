@@ -16,6 +16,8 @@ jobs:
       RELEASE_CREATOR: ${{github.event.client_payload.tag_creator}}
       RELEASE_TAG: ${{github.event.client_payload.tag}}
       RELEASE_REPO: ${{github.event.client_payload.repo}}
+      RELEASE_REPO_NAME: ${{github.event.client_payload.repo_name}}
+      RELEASE_SHA: ${{github.event.client_payload.sha}}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -53,3 +55,16 @@ jobs:
           else
             echo "Tagger is different than release creator: $login != $RELEASE_CREATOR"
           fi
+      - name: Generate release file
+        run: ossy r g changelog.yml release.md .devtools/templates/release.erb --data-path project.yml
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_PAT}}
+        with:
+          repo: ${{env.RELEASE_REPO_NAME}}
+          tag_name: ${{env.RELEASE_TAG}}
+          commitish: ${{env.RELEASE_SHA}}
+          release_name: ${{env.RELEASE_TAG}}
+          body_path: release.md
