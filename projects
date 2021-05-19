@@ -1,5 +1,4 @@
 rom
 rom-elasticsearch
 rom-sql
-rom-http
 rom-yesql
