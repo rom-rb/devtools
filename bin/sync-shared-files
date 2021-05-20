@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-devtools="tmp/devtools"
-shared="$devtools/shared/"
-
-rsync -arv $shared .
