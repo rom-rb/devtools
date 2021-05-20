@@ -1,1 +1,6 @@
 rom
+rom-elasticsearch
+rom-factory
+rom-sql
+rom-http
+rom-yesql
